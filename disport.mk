@@ -1,6 +1,6 @@
 disport_cirrus_upload : disport
 	tar -czf _disport.txz _disport
-	curl -s -X POST --data-binary @disport.txz http://${CIRRUS_HTTP_CACHE_HOST}/_disport-${CIRRUS_BUILD_ID}.txz
+	curl -s -X POST --data-binary @_disport.txz http://${CIRRUS_HTTP_CACHE_HOST}/_disport-${CIRRUS_BUILD_ID}.txz
 
 disport_poudriere:
 	pkg upgrade -y

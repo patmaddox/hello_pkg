@@ -11,7 +11,7 @@ NO_CHECKSUM= yes
 USE_GITHUB= yes
 GH_ACCOUNT= patmaddox
 GH_PROJECT= hello_pkg
-#GH_TAGNAME= tbd
+GH_TAGNAME= 56c6d2d4b89c35f09842db3f6ccf3da337161cdd
 
 do-install:
 	cp ${WRKSRC}/hello.sh ${STAGEDIR}${PREFIX}/bin/

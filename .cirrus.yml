@@ -1,0 +1,19 @@
+freebsd_instance:
+  image_family: freebsd-13-0
+
+build_task:
+  disport_script:
+    - make disport_cirrus_upload
+package_task:
+  execution_lock: poudriere # ensures only one poudriere task runs at a time
+  depends_on:
+    - build
+  environment:
+    TS_KEY: ENCRYPTED[!631bb588c48fadb93b01ebdbd37e8b9554bc404fcff4e3890ea36adcfeab7c71d2a6262370f0b4440e4bf86d572a1144!]
+    SSH_KEY: ENCRYPTED[!667b12fe849f8c965dad439e00ad648c030a5ec33f7d532360258f3c47697ffa5209e8ba5adabbf4c504bf95fd9aad99!]
+    PKG_HOST: "pkg.lion-dominant.ts.net ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBNoNL9LT2w6JFKUoN2xFrOUUJeXzL2pBW1M/HvscsAts3eMyUJmtH3dBDUHZ6XH5Gzjqt14/fI0rqCIBTfQPTio="
+  poudriere_script:
+    - make disport_poudriere
+  always:
+    makefile_artifacts:
+      path: _disport/*

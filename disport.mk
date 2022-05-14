@@ -4,7 +4,7 @@ disport_cirrus_upload : disport
 
 disport_poudriere:
 	pkg upgrade -y
-	pkg install -y tailscale curl
+	pkg install -y tailscale
 	service tailscaled enable
 	service tailscaled start
 	tailscale up --authkey ${TS_KEY} --hostname cirrus-${CIRRUS_REPO_NAME}-${CIRRUS_BRANCH}-${CIRRUS_BUILD_ID}
@@ -12,7 +12,7 @@ disport_poudriere:
 	echo "${PKG_HOST}" > /.cirrus_ssh/known_hosts
 	echo "${SSH_KEY}" > /.cirrus_ssh/key
 	chmod 600 /.cirrus_ssh/*
-	curl -o disport.txz http://${CIRRUS_HTTP_CACHE_HOST}/_disport-${CIRRUS_BUILD_ID}.txz
+	fetch -o _disport.txz http://${CIRRUS_HTTP_CACHE_HOST}/_disport-${CIRRUS_BUILD_ID}.txz
 	tar -xzf _disport.txz
 	ssh -i /.cirrus_ssh/key -o UserKnownHostsFile=/.cirrus_ssh/known_hosts cirrus@pkg "mkdir -p ports/devel/hello_pkg"
 	scp -i /.cirrus_ssh/key -o UserKnownHostsFile=/.cirrus_ssh/known_hosts _disport/* cirrus@pkg:ports/devel/hello_pkg/

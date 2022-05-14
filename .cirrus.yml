@@ -9,8 +9,8 @@ package_task:
   depends_on:
     - build
   environment:
-    TS_KEY: ENCRYPTED[6daa13fe28a5ea949d0a671af6868842fdb580d1fd39e9a8f16ab6f4cafd1f303cb516400980bd9f74d76e14465f64a0]
-    SSH_KEY: ENCRYPTED[f7051aec37d1022b02923cbe131dbcbb576cac7de52bd07e2a9c9590bdf8781b62e685594be7192a985d5b0380b5fb92]
+    TS_KEY: ENCRYPTED[!631bb588c48fadb93b01ebdbd37e8b9554bc404fcff4e3890ea36adcfeab7c71d2a6262370f0b4440e4bf86d572a1144!]
+    SSH_KEY: ENCRYPTED[!667b12fe849f8c965dad439e00ad648c030a5ec33f7d532360258f3c47697ffa5209e8ba5adabbf4c504bf95fd9aad99!]
     PKG_HOST: "pkg.lion-dominant.ts.net ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBNoNL9LT2w6JFKUoN2xFrOUUJeXzL2pBW1M/HvscsAts3eMyUJmtH3dBDUHZ6XH5Gzjqt14/fI0rqCIBTfQPTio="
   poudriere_script:
     - make disport_poudriere

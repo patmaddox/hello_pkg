@@ -3,7 +3,6 @@ disport_cirrus_upload : disport
 	curl -s -X POST --data-binary @_disport.txz http://${CIRRUS_HTTP_CACHE_HOST}/_disport-${CIRRUS_BUILD_ID}.txz
 
 disport_poudriere:
-	pkg upgrade -y
 	pkg install -y tailscale
 	service tailscaled enable
 	service tailscaled start

@@ -1,5 +1,5 @@
 PORTNAME= hello_pkg
-PORTVERSION= 0.1.0
+PORTVERSION= 0.1.1
 CATEGORIES= devel
 
 MAINTAINER= pat@patmaddox.com
